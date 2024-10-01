@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:travel_app/components/customNavBar.dart';
 import 'package:travel_app/cotrollers/dashController.dart';
 import 'package:travel_app/utility/constants.dart';
 
 class Dashboard extends StatelessWidget {
-  Dashboard({super.key});
+  const Dashboard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +22,7 @@ class Dashboard extends StatelessWidget {
                        bottom: 10,
                        left: 0,
                        child: Container(
-                                            padding: EdgeInsets.symmetric(horizontal: 12),
+                                            padding: const EdgeInsets.symmetric(horizontal: 12),
 
                          child: CustomNav(selectedIndex: cont.selectedIndex, onTabChange: (index){
                           cont.changeIndex(index);

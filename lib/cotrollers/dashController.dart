@@ -13,7 +13,7 @@ class DashController extends GetxController{
 int selectedIndex = 0;
 
 List<Widget> widgetList = [
-  Home(),Favourites(),Bookings(), Messages(),
+  const Home(),const Favourites(),const Bookings(), const Messages(),
 ];
   changeIndex (val){
     selectedIndex = val;

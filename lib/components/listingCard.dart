@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -28,7 +27,7 @@ class ListingCard extends StatelessWidget {
           child: Column(
             children: [
               Hero(
-                tag: '${image}',
+                tag: image,
                 child: Container(
                   height: height * 0.25,
                   decoration: BoxDecoration(
@@ -40,7 +39,7 @@ class ListingCard extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -50,7 +49,7 @@ class ListingCard extends StatelessWidget {
                       children: [
                         Text(
                           title,
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: primaryColor,
                               fontWeight: FontWeight.w500,
                               fontSize: 14),
@@ -58,18 +57,18 @@ class ListingCard extends StatelessWidget {
                         Container(
                           child: Row(
                             children: [
-                              Icon(
+                              const Icon(
                                 Icons.star,
                                 size: 28,
                                 color: Colors.orange,
                               ),
                               Text("${Random.secure().nextInt(5)}.0"),
-                              SizedBox(
+                              const SizedBox(
                                 width: 8,
                               ),
                               Text(
                                 " (${Random.secure().nextInt(500)}) ",
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: primaryColor,
                                     fontWeight: FontWeight.w500,
                                     fontSize: 14),
@@ -80,12 +79,12 @@ class ListingCard extends StatelessWidget {
                       ],
                     ),
                    
-                    Text(
+                    const Text(
                       "4 guests, 2 bedroom, 2 beds, 1 bathroom",
                       style: TextStyle(color: description, fontSize: 12),
-                    ), SizedBox(height: 4,),
+                    ), const SizedBox(height: 4,),
                     RichText(
-                        text: TextSpan(
+                        text: const TextSpan(
                             text: "£111",
                             style: TextStyle(
                                 decoration: TextDecoration.lineThrough,

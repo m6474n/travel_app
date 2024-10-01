@@ -1,8 +1,7 @@
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:hugeicons/hugeicons.dart';
 import 'package:travel_app/components/customSearch.dart';
 import 'package:travel_app/components/listingCard.dart';
 import 'package:travel_app/components/placeCard.dart';
@@ -30,7 +29,7 @@ class Home extends StatelessWidget {
                   Container(
                       height: height * 0.34,
                       width: width,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           color: primaryColor,
                           image: DecorationImage(
                               image: AssetImage('assets/imgs/img1.png'),
@@ -39,29 +38,26 @@ class Home extends StatelessWidget {
                               bottomLeft: Radius.circular(50),
                               bottomRight: Radius.circular(50))),
                       child: Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                             color: Colors.black54,
                             borderRadius: BorderRadius.only(
                                 bottomLeft: Radius.circular(50),
                                 bottomRight: Radius.circular(50))),
                         child: SafeArea(
                           child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 24.0),
                             child: Column(
                               children: [
                                 Row(
                                   children: [
                                     Expanded(
                                         child: Container(
-                                      child: Row(
+                                      child: const Row(
                                         children: [
-                                          Transform.rotate(
-                                              angle: -45 * pi / 180,
-                                              child: Icon(
-                                                Icons.send,
-                                                color: whiteColor,
-                                                size: 20,
-                                              )),
+                                          HugeIcon(
+                                              icon: HugeIcons.strokeRoundedSent,
+                                              color: whiteColor),
                                           SizedBox(
                                             width: 8,
                                           ),
@@ -72,47 +68,48 @@ class Home extends StatelessWidget {
                                         ],
                                       ),
                                     )),
-                                    Expanded(
+                                    const Expanded(
                                         child: Align(
-                                            alignment: Alignment.centerRight,
-                                            child: Icon(
-                                              Icons.person,
-                                              color: whiteColor,
-                                            )))
+                                      alignment: Alignment.centerRight,
+                                      child: HugeIcon(
+                                          icon: HugeIcons.strokeRoundedUser,
+                                          color: whiteColor),
+                                    ))
                                   ],
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 30,
                                 ),
-                                Text(
+                                const Text(
                                   "Hey Martin!, Tell us where you want to go",
                                   style: TextStyle(
                                       color: whiteColor,
                                       fontSize: 26,
                                       fontWeight: FontWeight.w500),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 30,
                                 ),
-                                CustomSearch(),
+                                const CustomSearch(),
                               ],
                             ),
                           ),
                         ),
                       )),
-                  SizedBox(
+                  const SizedBox(
                     height: 12,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 18.0),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 18.0),
                     child: Text(
                       "The most relevant",
-                      style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
+                      style:
+                          TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
                     ),
                   ),
                   Container(
                       height: height * 0.38,
-                      margin: EdgeInsets.only(top: 8),
+                      margin: const EdgeInsets.only(top: 8),
                       child: ListView.builder(
                         itemCount: 6,
                         scrollDirection: Axis.horizontal,
@@ -120,40 +117,50 @@ class Home extends StatelessWidget {
                           return Padding(
                             padding: EdgeInsets.only(left: index == 0 ? 8 : 0),
                             child: ListingCard(
-                              onTap: (){
+                              onTap: () {
                                 Get.to(ListingDetails(
-                                  title: cont.listingImgs[index]['title'] ,
-                                  image:cont.listingImgs[index]['image'] ,));
+                                  title: cont.listingImgs[index]['title'],
+                                  image: cont.listingImgs[index]['image'],
+                                  imageList: cont.carousalImage,
+                                ));
                               },
                               image: cont.listingImgs[index]['image'],
                               title: cont.listingImgs[index]['title'],
                             ),
                           );
                         },
-                      )),  SizedBox(
+                      )),
+                  const SizedBox(
                     height: 12,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 18.0),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 18.0),
                     child: Text(
                       "Discover New Places",
-                      style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
-                    ),),
-                    Container(
+                      style:
+                          TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
+                    ),
+                  ),
+                  Container(
                       height: height * 0.15,
-                      margin: EdgeInsets.only(top: 8),
+                      margin: const EdgeInsets.only(top: 8),
                       child: ListView.builder(
                         itemCount: cont.placesList.length,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
                           return Padding(
-                            padding: EdgeInsets.only(left: index == 0 ? 8 : 0),
-                            child: PlaceCard(title: cont.placesList[index],image: cont.listingImgs[index]['image'],)
-                          );
+                              padding:
+                                  EdgeInsets.only(left: index == 0 ? 8 : 0),
+                              child: PlaceCard(
+                                title: cont.placesList[index],
+                                image: cont.listingImgs[index]['image'],
+                              ));
                         },
-                      ))
-,                      SizedBox(height: 100,)
-,                ],
+                      )),
+                  const SizedBox(
+                    height: 100,
+                  ),
+                ],
               ),
             ),
           );

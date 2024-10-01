@@ -22,7 +22,7 @@ class PlaceCard extends StatelessWidget {
                 child: Container(  decoration: BoxDecoration(
             color: primaryColor,
             borderRadius: BorderRadius.circular(28),
-           gradient: LinearGradient(colors: [
+           gradient: const LinearGradient(colors: [
             primaryColor, Colors.transparent,
            ], begin: Alignment.bottomCenter, end: Alignment.topCenter)
            ),
@@ -30,7 +30,7 @@ class PlaceCard extends StatelessWidget {
             alignment: Alignment.bottomLeft,
             child: Padding(
               padding: const EdgeInsets.all(18.0),
-              child: Text(title, style: TextStyle(color: whiteColor, fontSize: 16, fontWeight: FontWeight.w500),),
+              child: Text(title, style: const TextStyle(color: whiteColor, fontSize: 16, fontWeight: FontWeight.w500),),
             )),
       ),
     ));

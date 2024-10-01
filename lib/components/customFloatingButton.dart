@@ -5,7 +5,8 @@ import 'package:travel_app/components/roundedButton.dart';
 import 'package:travel_app/utility/constants.dart';
 
 class CustomFloatingBtn extends StatelessWidget {
-  const CustomFloatingBtn({super.key});
+ final VoidCallback OnTap;
+  const CustomFloatingBtn({super.key, required this.OnTap});
 
   @override
   Widget build(BuildContext context) {
@@ -25,15 +26,15 @@ class CustomFloatingBtn extends StatelessWidget {
               borderRadius: BorderRadius.circular(80)),child:  Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 12.0),
+          const Padding(
+            padding: EdgeInsets.only(left: 12.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [Text("18 - 21 Oct. 3 nights",style: TextStyle(color: whiteColor, fontSize: 12),),
               Text("£383", style: TextStyle(color: whiteColor, fontSize: 24, fontWeight: FontWeight.w500),)],
             ),
-          ), Container(width: 120,child: RoundedButton(title: "Book Now", color: whiteColor),)
+          ), SizedBox(width: 120,child: RoundedButton(title: "Book Now", color: whiteColor, onTap: OnTap,),)
         ],
       ),))
     );

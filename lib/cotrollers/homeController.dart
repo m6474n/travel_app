@@ -36,4 +36,17 @@ class HomeController extends GetxController {
     "Dubrovnik, Croatia",
     "New Zealand"
   ];
+
+
+
+  List<String> carousalImage =[
+  'assets/imgs/img3.jpg',
+  'assets/imgs/img4.jpg',
+  'assets/imgs/img5.jpg',
+  'assets/imgs/img6.jpg',
+  'assets/imgs/img7.jpg',
+  'assets/imgs/img8.jpg',
+];
 }
+
+
